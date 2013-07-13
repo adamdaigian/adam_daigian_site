@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>Sea&#8226;Thos - Give the Ocean a Voice</title>
+
+<style type="text/css">
+/*    CSS RESET    */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {margin: 0px; padding: 0px; border: 0px;}
+
+/*    STYLES    */
+body, input {font-family: Arial, Helvetica, sans-serif;}
+#main-wrap {background: url('module-bg.jpg') no-repeat 0px 0px; height: 256px; width: 375px;}
+#content-wrap {float: left; height: 256px; width: 311px;}
+
+#page-1 {}
+#page-2 {display: none;}
+#page-3 {display: none;}
+
+#page-1-bg {background: url('page-1-bg.jpg') no-repeat 0px 0px; height: 222px; margin: 0px 0px 0px 22px; position: absolute; width: 330px;}
+
+input.name-input {background: url('text-field.png') no-repeat 0px 0px; border: none; font-size: 14px; height: 26px; margin: 138px 0px 0px 85px; outline: none; padding: 0px 4px 0px 4px; position: absolute; width: 257px;}
+input.email-input {background: url('text-field.png') no-repeat 0px 0px; border: none; font-size: 14px; height: 26px; margin: 168px 0px 0px 85px; outline: none; padding: 0px 4px 0px 4px; position: absolute; width: 257px;}
+input.zip-input {background: url('text-field-small.png') no-repeat 0px 0px; border: none; font-size: 14px; height: 26px; margin: 198px 0px 0px 85px; outline: none; padding: 0px 4px 0px 4px; position: absolute; width: 98px;}
+#email-submit {background: url('im-in-sprite.png') no-repeat 0px 0px; display: block; height: 50px; margin: 197px 0px 0px 201px; position: absolute; width: 150px;}
+#email-submit:hover {background-position: 0px -50px;}
+
+#page-2-bg {background: url('page-2-bg.jpg') no-repeat 0px 0px; height: 145px; margin: 50px 0px 0px 36px; width: 306px;}
+#twitter-share {background: url('twitter-buttons.jpg') no-repeat 0px 0px; display: inline-block; height: 49px; margin: 53px 0px 0px 126px; width: 96px}
+#twitter-share:hover {background-position: 0px -49px;}
+#no-thanks {background: url('twitter-buttons.jpg') no-repeat 0px -98px; display: inline-block; height: 49px; margin: 6px 0px 0px 126px; width: 96px}
+#no-thanks:hover {background-position: 0px -147px;}
+
+#page-3-bg {background: url('page-3-bg.jpg') no-repeat 0px 0px; height: 231px; margin: 11px 0px 0px 17px; width: 332px;}
+
+#lb_cover {background: url('lb-cover-tile.png') repeat top center; display: none; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;}
+#lb_main_wrap {background: url('white-70.png') repeat 0px 0px; display: none; left: 23px; position: absolute; top: 15px; padding: 8px; width: 310px; -moz-border-radius: 9px; border-radius: 9px;}
+#lb_head {background: url('lb-top.png') no-repeat 0px 0px; height: 14px; width: 390px;}
+#lb_foot {background: url('lb-bottom.png') no-repeat 0px 0px; height: 14px; width: 390px;}
+#lb_content {background: #FFFFFF; border: 1px #444444 solid; padding: 15px 30px; -moz-border-radius: 9px; border-radius: 9px;}
+#lb_content p {text-align: center;}
+#lb_content p.error {color: red; line-height: 25px;}
+#lb_close_button {background: url('lb-close-button.png') no-repeat 0px 0px; height: 25px; left: 307px; position: absolute; top: -6px; width: 25px;}
+
+
+
+/*  temp  */
+html {background: #CCCCCC;}
+</style>
+</head>
+<body>
+
+<div id="main-wrap">
+	<div id="content-wrap">
+		<div id="page-1">
+			<div id="page-1-bg"></div>
+			<form id="petition_form" name="petition">
+            	<input type="hidden" name="petition" value="AB_376_sharkfin" />
+				<input type="text" rel="Name" id="Name" name="firstName" class="name-input" />
+				<input type="text" rel="E-Mail" id="email" name="email" class="email-input"/>
+				<input type="text" rel="Zipcode" id="zip" name="zip" class="zip-input"/>		
+				<a href="#" id="email-submit" onClick="formValidate();return false;"></a>
+			</form>
+		</div>
+		<div id="page-2">
+			<div id="page-2-bg">
+				<a href="http://twitter.com/share?url=http://www.seathos.org&text=I%20am%20helping%20to%20ban%20shark%20finning,%20now%20it%20is%20your%20turn.%20Join%20the%20battle%20to%20help%20save%20sharks!-&count=none" onclick="iJoined();" id="twitter-share" target="_blank" rel="nofollow"></a>
+				<a href="#" id="no-thanks" onclick="iJoined(); return false;"></a>
+			</div>
+		</div>
+		<div id="page-3">
+			<div id="page-3-bg"></div>
+		</div>
+	</div>
+</div>
+<div id="lb_cover"></div>
+<div id="lb_main_wrap"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript">
+// FORM VALIDATION AND AJAX SUBMISSION SCRIPT
+var data;
+var phone = "";
+
+function formValidate(){
+	var theErrorMessage = "";
+	data = $("#petition_form").serializeArray();
+	$(data).each(function(){
+		if(!this.value) theErrorMessage += $("#"+this.name).attr("rel") + " field is empty.<br>";
+		//IF FORM HAS EMAIL, VALIDATE
+		if(this.name == "email" && (this.value.indexOf("@") < 1 || this.value.lastIndexOf(".") < this.value.indexOf("@") + 2 || this.value.lastIndexOf(".") + 2 >= this.value.length)) theErrorMessage += "Not a valid e-mail address <br>";
+		//IF FORM HAS 3 FIELD PHONE, BUILD STRING
+		if(this.name == "area_code" || this.name == "prefix" || this.name == "extension") phone += this.value;
+	});
+	
+	//  IF NO ERRORS SUBMIT
+	if(theErrorMessage == null || theErrorMessage == ""){
+		formSubmit();	
+	} else {
+		notComplete(theErrorMessage);
+	};
+};
+
+function formSubmit(){
+	//IF FORM HAS 3 FIELD PHONE, PUSH INTO SERIALIZED ARRAY
+	data.push({'name' : 'phone', 'value' : phone });
+	$.post("../handlers/petition.php",data,shareTime);
+};
+
+//END SCRIPT
+//====================================================================================================================================
+//====================================================================================================================================
+
+var petitionNextPage;
+var petitionCurrentPage = 1;
+
+$(document).ready(function(){
+	$(".nav-button").click(function(){
+		petitionNextPage = $(this).attr("rel");
+		petitionChangePage();									
+	})
+});
+
+function notComplete(message){
+	$("#lb_main_wrap").html("<div id='lb_content'><p>You either have invalid information or you forgot to fill out all the fields.  Please go back and review these areas.</p><p class='error'>"+message+"</p></div>	<div id='lb_close_button'></div>");
+	$("#lb_cover").fadeIn(200, function(){
+		$("#lb_main_wrap").delay(200).fadeIn(200);	
+		
+		$("#lb_cover").click(function(){
+			$("#lb_main_wrap").fadeOut(200, function(){
+				$(this).html("");										 
+			});	
+			$("#lb_cover").fadeOut(200);
+		});
+		
+		$("#lb_close_button").mouseenter(function(){
+			$(this).css({'cursor' : 'pointer'});
+		}).click(function(){
+			$("#lb_main_wrap").fadeOut(200, function(){
+				$(this).html("");										 
+			});	
+			$("#lb_cover").fadeOut(200);
+		});
+	});
+};
+
+function shareTime(){
+	$("#page-1").fadeOut(200, function(){
+		$("#page-2").fadeIn(200);								   
+	});
+	$('form').clearForm();
+	window.open('http://facebook.com/sharer.php?u=http://zaps.io/a12664', '_blank');
+};
+
+function iJoined(){
+	$("#page-2").fadeOut(200, function(){
+		$("#page-3").fadeIn(200);								   
+	});
+}
+
+$.fn.clearForm = function() {
+  return this.each(function() {
+	var type = this.type, tag = this.tagName.toLowerCase();
+	if (tag == 'form')
+	  return $(':input',this).clearForm();
+	if (type == 'text' || type == 'password' || tag == 'textarea')
+	  this.value = '';
+	else if (type == 'checkbox' || type == 'radio')
+	  this.checked = false;
+	else if (tag == 'select')
+	  this.selectedIndex = -1;
+  });
+};
+
+
+</script>
+</body>
+</html>
