@@ -89,7 +89,7 @@ hr.soften {
 ------------------------- */
 .jumbotron {
   position: relative;
-  padding-bottom: 40px 0;
+  padding-bottom: 60px 0;
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
@@ -167,7 +167,7 @@ hr.soften {
   background: url(../img/Coachella-One3.jpg) no-repeat center center fixed;
   /*opacity: .4;*/
 }
-@media
+/*@media
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (   min--moz-device-pixel-ratio: 2),
 only screen and (     -o-min-device-pixel-ratio: 2/1) {
@@ -176,12 +176,12 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
     background-size: 150px 150px;
   }
 
-}
+}*/
 
 /* Masthead (docs home)
 ------------------------- */
 .masthead {
-  padding: 120px 0 60px;
+  padding: 160px 0 100px;
   margin-bottom: 0;
   color: #fff;
 }
