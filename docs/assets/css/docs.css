@@ -93,8 +93,6 @@ hr.soften {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
-  background: url(../img/Coachella-One3.jpg) no-repeat;
-  background-attachment: fixed;
 }
 .jumbotron h1 {
   font-size: 40px;
@@ -166,7 +164,7 @@ hr.soften {
   right: 0;
   bottom: 0;
   left: 0;
-  /*background-attachment: fixed;*/
+  background: url(../img/ggbridge.jpg) no-repeat center center fixed;
   /*opacity: .4;*/
 }
 /*@media
@@ -293,8 +291,8 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 }
 
 a href {
-	text-decoration: none;
-	}
+  text-decoration: none;
+  }
 .marketing {
   text-align: center;
   color: #5a5a5a;
@@ -335,8 +333,8 @@ a href {
 }
 
 a href {
-	text-decoration: none;
-	}
+  text-decoration: none;
+  }
 
 /* Footer
 -------------------------------------------------- */
