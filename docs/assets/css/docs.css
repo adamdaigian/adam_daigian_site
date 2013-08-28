@@ -1125,3 +1125,63 @@ form.bs-docs-example {
     padding-bottom: 20px;
   }
 }
+
+.top50 { 
+  padding-top:50px; 
+}
+
+.timeline { 
+  margin: 0 auto; 
+  text-align: center; 
+}
+
+.timeline li { 
+  list-style: none; 
+  display: inline; 
+}
+
+.timeline a { 
+  border-radius: 50%; 
+  background-color: rgb(26, 188, 156); 
+  background-color: rgba(26, 188, 156, 0.25); 
+  display: inline-table; 
+  text-decoration: none; 
+  vertical-align: middle; 
+}
+
+.timeline a.s1 { 
+  width: 150px; 
+  height: 150px; 
+  margin-left: -30px;  
+}
+
+.timeline a.s2 { 
+  width: 120px; 
+  height: 120px; 
+  margin-left: -24px;  
+}
+
+.timeline a.s3 { 
+  width: 90px; 
+  height: 90px; 
+  margin-left: -18px;  
+}
+
+.timeline a.s4 { 
+  width: 60px; 
+  height: 60px; 
+}
+
+.timeline a.s5 { 
+  position: relative;
+  width: 30px; 
+  height: 30px; 
+  margin-left: -6px;  
+}
+
+.s1 > i {
+  position:absolute;
+  margin-top: 50px;
+  margin-left: -25px;
+  color: white;
+}
